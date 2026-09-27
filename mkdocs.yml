@@ -1,0 +1,74 @@
+site_name: Capa 8
+site_description: Ciberseguridad, privacidad y trucos informáticos explicados sin humo.
+site_author: Edu García
+site_url: https://tu-dominio.example
+
+theme:
+  name: material
+  language: es
+  font:
+    text: Manrope
+    code: JetBrains Mono
+  favicon: assets/favicon.svg
+  logo: assets/brand.svg
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo claro
+
+plugins:
+  - search
+  - blog:
+      blog_dir: posts
+      post_date_format: long
+      post_url_format: "{slug}"
+      post_readtime: true
+      post_readtime_words_per_minute: 220
+      archive: true
+      archive_name: Archivo
+      categories: true
+      categories_name: Temas
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/marked/marked.min.js
+  - https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js
+  - assets/dynamic-posts.js
+
+nav:
+  - Inicio: index.md
+  - Notas: posts/index.md
+  - Sobre mí: about.md
+
+copyright: '© 2026 <a href="https://edugarcia.dev">edugarcia.dev</a>'
