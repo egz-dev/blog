@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "buildCommand": "pip install -r requirements.txt && mkdocs build",
+  "outputDirectory": "site",
+  "cleanUrls": true
+}
