@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "pip install -r requirements.txt && mkdocs build",
+  "buildCommand": "uv venv .vercel-venv && uv pip install --python .vercel-venv/bin/python -r requirements.txt && .vercel-venv/bin/mkdocs build",
   "outputDirectory": "site",
   "cleanUrls": true
 }
