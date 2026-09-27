@@ -30,7 +30,14 @@
 
 .md-header {
   border-bottom: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 18%, transparent);
-  background: transparent;
+  background: var(--md-default-bg-color);
+  transition: background-color .2s ease, backdrop-filter .2s ease;
+}
+
+.md-header.md-header--scrolled {
+  background: color-mix(in srgb, var(--md-default-bg-color) 76%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .md-header__button.md-logo {
@@ -56,7 +63,6 @@
   margin-left: 0;
 }
 
-[data-md-color-scheme="default"] .md-header,
 [data-md-color-scheme="default"] .md-tabs {
   background: rgba(245, 247, 251, .88);
 }
@@ -332,6 +338,7 @@
 }
 
 .md-footer__inner {
+  display: none !important;
   min-height: 0;
   padding-bottom: 0;
   padding-top: 0;
@@ -358,12 +365,11 @@
   display: flex;
   font-size: 0;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
-.md-copyright__highlight,
-.md-copyright > a {
+.md-copyright__highlight {
   font-size: .75rem;
 }
 
@@ -372,12 +378,14 @@
 }
 
 .md-copyright > a {
+  display: none;
   white-space: nowrap;
 }
 
-.md-copyright > a::before {
+.md-copyright__highlight a::before {
   color: var(--md-default-fg-color--light);
-  content: "Made with ";
+  content: "·";
+  margin: 0 .45rem;
 }
 
 .dynamic-post-card {
@@ -629,6 +637,14 @@
 }
 
 @media (max-width: 700px) {
+  .md-header__button[for="__drawer"] {
+    order: 1;
+  }
+
+  .md-header__button.md-logo {
+    order: 2;
+  }
+
   .hero {
     padding: 3rem 0 2.5rem;
   }
@@ -651,8 +667,7 @@
   }
 
   .md-copyright {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: .35rem;
+    align-items: center;
+    flex-direction: row;
   }
 }
